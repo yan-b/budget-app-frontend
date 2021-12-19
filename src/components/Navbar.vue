@@ -11,6 +11,7 @@
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/accounts">Account Overview</router-link>
           <router-link class="nav-link" to="/entries">Account Entries</router-link>
+          <router-link class="nav-link" to="/about">About</router-link>
         </div>
       </div>
     </div>

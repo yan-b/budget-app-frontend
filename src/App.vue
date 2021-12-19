@@ -1,6 +1,8 @@
 <template>
   <navbar></navbar>
+  <div class="App m-lg-4">
   <router-view/>
+  </div>
 </template>
 
 <script>
