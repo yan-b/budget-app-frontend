@@ -14,7 +14,7 @@
         <td scope="row" align="left">{{ account.accountName }}</td>
         <td scope="row" align="left">{{ account.accountType }}</td>
         <td scope="row" align="left">{{ account.accountBalance }}</td>
-        <td scope="row" align="left">XssXX</td>
+        <td scope="row" align="left">XXXss</td>
       </tr>
     </tbody>
   </table>
@@ -29,11 +29,13 @@ export default {
     }
   },
   mounted () {
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/getAccounts'
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     }
-    fetch('http://localhost:8080/api/v1/getAccounts', requestOptions)
+
+    fetch(endpoint, requestOptions)
       .then(response => response.json())
       .then(result => result.forEach(account => {
         this.accounts.push(account)
