@@ -13,6 +13,7 @@
         <img src="../assets/wealth.png" class="card-img-top" style="height: 13rem;" alt="Wealth">
           <div class="card-body">
             <h5 class="card-title">Your total assets:</h5>
+            <br>
             <p class="card-text"> <strong><h5> <div text="Test #numbers.formatDecimal(wealth, 1, POINT, 2, COMMA)} + ' €'"></div></h5></strong> </p>
             <a href="/accounts" class="btn btn-primary">Account Overview</a>
           </div>
@@ -23,7 +24,7 @@
         <img src="../assets/accounts.png" class="card-img-top" style="height: 13rem;" alt="Accounts">
         <div class="card-body">
           <h5 class="card-title">Your number of budget accounts:</h5>
-          <p class="card-text"> <strong> <h5>"Testtext"></h5> </strong> </p>
+          <br>
           <a href="/newAccount" class="btn btn-primary">Open new Account</a>
         </div>
       </div>
