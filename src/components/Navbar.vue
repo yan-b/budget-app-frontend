@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-info text-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><img src="../assets/logo.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="/"><img src="../assets/logo.png" alt="" width="28" height="28" class="d-inline-block align-text-top">
         Budget-App</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
