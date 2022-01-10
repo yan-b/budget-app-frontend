@@ -31,7 +31,7 @@
           <label for="entry-description" class="form-label">Entry description:</label>
           <input type="text" class="form-control" id="entry-description" v-model="entryDescription" required>
           <div class="invalid-feedback">
-            Please provide a valid description for your entry.
+            Please provide a valid description for your enntry.
           </div>
         </div>
         <div class="mb-3">
@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     async createAccount () {
-      const valid = this.validate
+      const valid = this.validate()
       if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/newEntry'
         const headers = new Headers()
@@ -139,7 +139,7 @@ export default {
   },
   validate () {
     let valid = true
-    var forms = document.querySelectorAll('.needs-validation')
+    const forms = document.querySelectorAll('.needs-validation')
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
         form.addEventListener('submit', function (event) {

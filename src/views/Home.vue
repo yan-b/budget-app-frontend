@@ -44,21 +44,21 @@
       <form class="text-start needs-validation" id="account-create-form" novalidate>
         <div class="mb-3">
           <label for="account-name" class="form-label">Account name:</label>
-          <input type="text" class="form-control" id="account-name" v-model="accountName" required>
+          <input type="text" class="form-control needs-validation" id="account-name" v-model="accountName" required>
           <div class="invalid-feedback">
             Please provide a valid name for your account.
           </div>
         </div>
         <div class="mb-3">
-          <label for="account-type" class="form-label">Initial Balance:</label>
-          <input type="text" class="form-control" id="account-type" v-model="accountBalance" required>
+          <label for="account-balance" class="form-label">Initial Balance:</label>
+          <input type="text" class="form-control needs-validation" id="account-balance" v-model="accountBalance" required>
           <div class="invalid-feedback">
             Please enter a valid balance (e.g. 28.19 or 28,19).
           </div>
         </div>
         <div class="mb-3">
-          <label for="type" class="form-label">Account type</label>
-          <select id="type" class="form-select" v-model="accountType" required>
+          <label for="account-type" class="form-label">Account type</label>
+          <select id="account-type" class="form-select needs-validation" v-model="accountType" required>
             <option value="" selected disabled>Choose...</option>
             <option value="GIROKONTO">Girokonto</option>
             <option value="SPARKONTO">Sparkonto</option>
@@ -115,13 +115,13 @@ export default {
   emits: ['created'],
   methods: {
     async createAccount () {
-      const valid = this.validate
+      const valid = this.validate()
       if (valid) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/newAccount'
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
         const account = JSON.stringify({
-          userId: '111',
+          userId: '111aaa',
           accountName: this.accountName,
           accountType: this.accountType,
           accountBalance: this.accountBalance
@@ -139,7 +139,8 @@ export default {
   },
   async handleResponse (response) {
     if (response.ok) {
-      return process.env.VUE_APP_BACKEND_BASE_URL + '/accounts'
+      this.$emit('created', response.headers.get('location'))
+      document.getElementById('close-offcanvas').click()
     } else if (response.status === 400) {
       response = await response.json()
       response.errors.forEach(error => {
@@ -160,6 +161,7 @@ export default {
             event.preventDefault()
             event.stopPropagation()
           }
+
           form.classList.add('was-validated')
         }, false)
       })
@@ -178,5 +180,4 @@ export default {
     }
   }
 }
-
 </script>
